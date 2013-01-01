@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Owner:</b>
+  <%= @kifu.owner_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @kifu.title %>
+</p>
+
+<p>
+  <b>File url:</b>
+  <%= @kifu.file_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_kifu_path(@kifu) %> |
+<%= link_to 'Back', kifus_path %>

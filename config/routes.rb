@@ -1,5 +1,7 @@
 Showgi::Application.routes.draw do
   
+  resources :kifus
+
   root :to => 'home#index'
 	
   devise_for :users

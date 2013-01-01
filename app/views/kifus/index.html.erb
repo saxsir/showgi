@@ -1,0 +1,27 @@
+<h1>Listing kifus</h1>
+
+<table>
+  <tr>
+    <th>Owner</th>
+    <th>Title</th>
+    <th>File url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @kifus.each do |kifu| %>
+  <tr>
+    <td><%= kifu.owner_id %></td>
+    <td><%= kifu.title %></td>
+    <td><%= kifu.file_url %></td>
+    <td><%= link_to 'Show', kifu %></td>
+    <td><%= link_to 'Edit', edit_kifu_path(kifu) %></td>
+    <td><%= link_to 'Destroy', kifu, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Kifu', new_kifu_path %>
