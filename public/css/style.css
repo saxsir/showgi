@@ -1,0 +1,6 @@
+.hidden {
+  display: none;
+}
+.clickable:hover {
+  color: blue;
+}
