@@ -23,7 +23,13 @@
     <%= f.label :csa %>
     <%= f.text_area :csa %>
   </div>
+  <div>
+    <input type="file" id="csadata" name="csadata" />
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+<script>
+  document.getElementById('csadata').addEventListener('change', readCSA, false);
+</script>
