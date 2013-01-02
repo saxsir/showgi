@@ -15,9 +15,12 @@
   <%= @kifu.file_url %>
 </p>
 
+<div id="board"></div>
+
 <pre id="csa" class="hidden">
-	ここに棋譜再生できるようにしてやるーーー
 </pre>
+
+<script>makeBoard("board", "csa")</script>
 
 <%= link_to 'Edit', edit_kifu_path(@kifu) %> |
 <%= link_to 'Back', kifus_path %>

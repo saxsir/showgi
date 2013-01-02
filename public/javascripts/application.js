@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require shogi-common
+//= require kifu
 //= require_tree .
