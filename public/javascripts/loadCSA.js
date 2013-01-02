@@ -7,7 +7,7 @@ var loadCSA = function(filePath) {
     httpObj.onreadystatechange = function(){
 	if ( (httpObj.readyState == 4) && (httpObj.status == 200) ){
             document.getElementById("csa").innerHTML = httpObj.responseText;
-	    makeBoard("board", "csa");
+	    //makeBoard("board", "csa");
 	}
     }
 }

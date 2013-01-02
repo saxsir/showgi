@@ -10,20 +10,16 @@
   <%= @kifu.title %>
 </p>
 
-<p>
-  <b>File url:</b>
-  <%= @kifu.file_url %>
-</p>
-
 <div id="board"></div>
 
-<pre id="csa" class="hidden"></pre>
+<pre id="csa" class="hidden">
+<%= @kifu.csa %>
+</pre>
 
 <%= link_to 'Edit', edit_kifu_path(@kifu) %> |
 <%= link_to 'Back', kifus_path %>
 
-<%= javascript_include_tag "loadCSA" %>
 <script>
-var filePath = <%= "'" + @kifu.file_url + "'" %>;
-loadCSA(filePath);
+  makeBoard("board", "csa");
 </script>
+
