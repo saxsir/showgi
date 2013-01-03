@@ -22,3 +22,30 @@ User.connection.execute("delete from sqlite_sequence where name='users'")
     u.password_confirmation = "userpass"
   end
 end
+
+## Rate
+Rate.delete_all
+Rate.connection.execute("delete from sqlite_sequence where name='rates'");
+
+10.times do |i|
+  Rate.create! do |r|
+    r.user_id = i + 1
+    r.kifu_id = rand(3) + 1
+    r.rate = rand(5) + 1
+  end
+end
+
+## Favorite
+Favorite.delete_all
+Favorite.connection.execute("delete from sqlite_sequence where name='favorites'");
+
+10.times do |i|
+  Favorite.create! do |f|
+    f.user_id = i + 1
+    f.kifu_id = rand(3) + 1 #1~3
+    f.favorite = true
+  end
+end
+
+
+
