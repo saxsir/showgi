@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130103012924) do
+ActiveRecord::Schema.define(:version => 20130103013650) do
+
+  create_table "favorites", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "kifu_id"
+    t.boolean  "favorite"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "kifus", :force => true do |t|
     t.integer  "owner_id"
