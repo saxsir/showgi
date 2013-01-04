@@ -43,8 +43,6 @@ function pieceCountTable() {
   return pieces;
 }
 
-
-
 function unpromote(ptype) {
   if (ptype == "TO") {
     return "FU";

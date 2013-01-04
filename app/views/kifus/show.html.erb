@@ -1,5 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<% if user_signed_in? %>
+<p>お気に入りに登録する</p>
+
+<% end %>
+
+<p>
+  
+  この棋譜の評価は<span class="red"><%= @rate %></span>だよ
+</p>
+
 <p>
   <b>Owner:</b>
   <%= @kifu.owner_id %>

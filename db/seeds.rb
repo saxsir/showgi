@@ -30,7 +30,7 @@ Rate.connection.execute("delete from sqlite_sequence where name='rates'");
 10.times do |i|
   Rate.create! do |r|
     r.user_id = i + 1
-    r.kifu_id = rand(3) + 1
+    r.kifu_id = rand(4) + 1
     r.rate = rand(5) + 1
   end
 end
@@ -42,7 +42,7 @@ Favorite.connection.execute("delete from sqlite_sequence where name='favorites'"
 10.times do |i|
   Favorite.create! do |f|
     f.user_id = i + 1
-    f.kifu_id = rand(3) + 1 #1~3
+    f.kifu_id = rand(4) + 1 #1~4
     f.favorite = true
   end
 end

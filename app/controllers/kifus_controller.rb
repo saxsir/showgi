@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class KifusController < ApplicationController
   # GET /kifus
   # GET /kifus.json
@@ -13,7 +14,14 @@ class KifusController < ApplicationController
   # GET /kifus/1
   # GET /kifus/1.json
   def show
-    @kifu = Kifu.find(params[:id])
+    @kifu = Kifu.find(params[:id])    
+    rates = Rate.find_by_sql("SELECT * FROM rates WHERE kifu_id = '#{params[:id]}'")
+    sum = 0.0
+    rates.each do |r|
+      sum += r.rate
+    end
+    # 小数点第1位で四捨五入
+    @rate = ((sum / rates.length) * 10).round / 10.0
 
     respond_to do |format|
       format.html # show.html.erb
