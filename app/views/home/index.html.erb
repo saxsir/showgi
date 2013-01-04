@@ -1,4 +1,4 @@
-<h1>Home#index</h1>
+<h1>Showgi</h1>
 
 <% if user_signed_in? %>
 <p>You are <%= current_user.email %></p>
@@ -6,3 +6,10 @@
 <% else %>
 <%= link_to 'Login', new_user_session_path %>
 <% end %>
+
+<h2>人気ランキング</h2>
+<ol>
+  <% @kifus.each do |kifu| %>
+  <li><%= kifu.title %></li>
+  <% end %>
+</ol>

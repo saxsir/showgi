@@ -14,7 +14,9 @@ class KifusController < ApplicationController
   # GET /kifus/1
   # GET /kifus/1.json
   def show
-    @kifu = Kifu.find(params[:id])    
+    @kifu = Kifu.find(params[:id])
+    @kifu.view += 1
+    @kifu.save
     rates = Rate.find_by_sql("SELECT * FROM rates WHERE kifu_id = '#{params[:id]}'")
     sum = 0.0
     rates.each do |r|
