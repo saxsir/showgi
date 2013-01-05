@@ -1,12 +1,4 @@
-<h1>Showgi</h1>
-
-<% if user_signed_in? %>
-<p>You are <%= current_user.email %></p>
-<%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
-<% else %>
-<%= link_to 'Login', new_user_session_path %>
-<% end %>
-
+<h1>Home$index</h1>
 <h2>新着順</h2>
 <ul>
   <% @kifus_order_by_created_at.each do |kifu| %>
