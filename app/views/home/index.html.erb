@@ -7,9 +7,19 @@
 <%= link_to 'Login', new_user_session_path %>
 <% end %>
 
-<h2>人気ランキング</h2>
-<ol>
-  <% @kifus.each do |kifu| %>
-  <li><%= kifu.title %></li>
+<h2>新着順</h2>
+<ul>
+  <% @kifus_order_by_created_at.each do |kifu| %>
+  <li><%= link_to kifu.title, kifu %>: 登録日<%= kifu.created_at.to_date %></li>
   <% end %>
-</ol>
+</ul>
+
+<h2>人気ランキング</h2>
+<ul>
+  <% @kifus_order_by_view.each do |kifu| %>
+  <li><%= link_to kifu.title %>: 総閲覧数<%= kifu.view %></li>
+  <% end %>
+</ul>
+
+
+

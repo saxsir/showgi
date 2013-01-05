@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 class HomeController < ApplicationController
   def index
-    # 評価が高い順に棋譜を表示
-    @kifus = Kifu.all
+    # 最近登録された順
+    @kifus_order_by_created_at = Kifu.find(:all, :order => 'created_at desc')
     
-    # 最近登録された棋譜を表示
-
+    # View数が多い順
+    @kifus_order_by_view = Kifu.find(:all, :order => 'view desc')
+    
     respond_to do |format|
       format.html # index.html.erb
     end
