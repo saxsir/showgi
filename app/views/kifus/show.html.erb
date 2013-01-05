@@ -6,8 +6,14 @@
 <% end %>
 
 <p>
-  
+  <% if @rate %>
   この棋譜の評価は<span class="red"><%= @rate %></span>だよ
+  <% else %>
+  この棋譜にはまだ評価がついてないよ
+  <% end %>
+</p>
+<p>
+  この棋譜は<span class="red"><%= @kifu.view %></span>回閲覧されているよ
 </p>
 
 <p>
