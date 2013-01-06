@@ -10,7 +10,9 @@ Showgi::Application.routes.draw do
   
   match 'userpage' => 'userpage#index', :as => :userpage
   
-  post 'kifus/:id' => 'favorite#create', :as => :create_favorite
+  post 'favorite/:kifu_id' => 'favorite#create', :as => :create_favorite
+  
+  delete 'favorite/:id' => 'favorite#destroy', :as => :destroy_favorite
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

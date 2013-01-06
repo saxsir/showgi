@@ -18,7 +18,7 @@ class KifusController < ApplicationController
     @kifu.view += 1
     @kifu.save
     @rate = nil
-    @favorite = false
+    @favorite = nil
 
     if @kifu.rates.length >= 1
       sum = 0.0
@@ -29,13 +29,10 @@ class KifusController < ApplicationController
       @rate = ((sum / @kifu.rates.length) * 10).round / 10.0
     end
 
+    # 同じものは1つしかないはず。。
     @favorites = Favorite.find(:all, :conditions => ['user_id = ? and kifu_id = ?', current_user.id, params[:id]])
+    @favorite = @favorites[0]
     
-    # すでにfavoriteに登録されていたらfalseのまま
-    if @favorites.length <= 0
-      @favorite = true
-    end               
-
     # @kifu, @rate, @favorite
     respond_to do |format|
       format.html # show.html.erb

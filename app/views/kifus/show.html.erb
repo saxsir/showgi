@@ -2,9 +2,9 @@
 
 <% if user_signed_in? %>
 <% if @favorite %>
-<%= link_to 'お気に入りに追加する', create_favorite_path, :method => :post, :confirm => 'お気に入りに追加してもいいですか？' %>
+<%= link_to 'お気に入りを解除する', '/favorite/' + @favorite.id.to_s , :method => :delete %>
 <% else %>
-<p>お気に入りに登録済みです</p>
+<%= link_to 'お気に入りに追加する', '/favorite/' + @kifu.id.to_s , :method => :post %>
 <% end %>
 <p>レートをつける</p>
 <% end %>
