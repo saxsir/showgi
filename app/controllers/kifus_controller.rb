@@ -16,7 +16,11 @@ class KifusController < ApplicationController
   # GET /kifus/1.json
   def show
     @kifu = Kifu.find(params[:id])
-    @kifu.view += 1
+    if @kifu.view
+      @kifu.view += 1
+    else
+      @kifu.view = 1
+    end
     @kifu.save
     @rate = nil
     @favorite = nil
@@ -96,7 +100,7 @@ class KifusController < ApplicationController
     @kifu.destroy
 
     respond_to do |format|
-      format.html { redirect_to kifus_url }
+      format.html { redirect_to kifus_url, :notice => 'Kifu was successfully deleted.' }
       format.json { head :no_content }
     end
   end

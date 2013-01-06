@@ -1,38 +1,36 @@
 <%= form_for(@kifu) do |f| %>
-  <% if @kifu.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@kifu.errors.count, "error") %> prohibited this kifu from being saved:</h2>
+<% if @kifu.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@kifu.errors.count, "error") %> prohibited this kifu from being saved:</h2>
+  
+  <ul>
+    <% @kifu.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-      <ul>
-      <% @kifu.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="field">
+  <%= f.label :user_id %><br />
+  <%= f.number_field(:user_id, :readonly => true, :value => current_user.id) %><span class="red">※変更不可</span>
+</div>
+<div class="field">
+  <%= f.label :title %><br />
+  <%= f.text_field(:title, :size => 50) %>
+</div>
+<div class="field">
+  <%= f.label :csa %><br />
+  <%= f.text_area :csa %>
+</div>
+<div>
+  <span>CSAファイルを読み込む</span>
+  <input type="file" id="csadata" name="csadata" />
+</div>
 
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :csa %>
-    <%= f.text_area :csa %>
-  </div>
-  <div class="field">
-    <%= f.label :view %>
-    <%= f.number_field :view %>
-  </div>
-  <div>
-    <input type="file" id="csadata" name="csadata" />
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>
 <script>
   document.getElementById('csadata').addEventListener('change', readCSA, false);
