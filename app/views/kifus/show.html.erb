@@ -1,44 +1,51 @@
-<p id="notice"><%= notice %></p>
+<h2><%= @kifu.title %></h2>
+<div id="show-kifu">
+  <div id="kifu-head" class="clearfix">
+    <div id="kifu-head-left">
+      <% if user_signed_in? %>
+      <p>
+	この棋譜を
+	<% if @favorite %>
+	<%= link_to 'お気に入りから削除', '/favorite/' + @favorite.id.to_s , :method => :delete %>
+	<% else %>
+	<%= link_to 'お気に入りに追加', '/favorite/' + @kifu.id.to_s , :method => :post %>
+	<% end %>
+	する
+      </p>
+      <% end %>
+      
+      <p>
+	この棋譜は<span class="red"><%= @kifu.view %></span>回閲覧されているよ
+      </p>
+    </div>
+    <div id="kifu-head-right">
+      <% if @kifu.user.id == current_user.id %>
+      <%= link_to 'Edit', edit_kifu_path(@kifu) %> |
+      <% end %>
+      <%= link_to 'Back', kifus_path %>
+    </div>
+  </div>
+  <div id="view">
+    <div id="board"></div>
+    <pre id="csa" class="hidden">
+      <%= @kifu.csa %>
+    </pre>
+  </div>
+</div>
+<h3>使い方</h3>
+<div id="how-to-use">
+  <p>
+    キーボードの矢印キーで進めたりできるよ。
+  </p>
+  <ul>
+    <li>→：1手進める</li>
+    <li>←：1手戻す</li>
+    <li>↑：10手戻す</li>
+    <li>↓：10手進める</li>
+  </ul>
+</div>
 
-<% if user_signed_in? %>
-<% if @favorite %>
-<%= link_to 'お気に入りを解除する', '/favorite/' + @favorite.id.to_s , :method => :delete %>
-<% else %>
-<%= link_to 'お気に入りに追加する', '/favorite/' + @kifu.id.to_s , :method => :post %>
-<% end %>
-<% end %>
 
-<!--
-<p>
-  <% if @rate %>
-  この棋譜の評価は<span class="red"><%= @rate %></span>だよ
-  <% else %>
-  この棋譜にはまだ評価がついてないよ
-  <% end %>
-</p>
--->
-<p>
-  この棋譜は<span class="red"><%= @kifu.view %></span>回閲覧されているよ
-</p>
-
-<p>
-  <b>Owner:</b>
-  <%= @kifu.user_id %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @kifu.title %>
-</p>
-
-<div id="board"></div>
-
-<pre id="csa" class="hidden">
-<%= @kifu.csa %>
-</pre>
-
-<%= link_to 'Edit', edit_kifu_path(@kifu) %> |
-<%= link_to 'Back', kifus_path %>
 
 <script>
   makeBoard("board", "csa");

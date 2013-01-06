@@ -1,15 +1,18 @@
-<h1>Home$index</h1>
-<h2>新着順</h2>
+<h2>新着順に並べてみた</h2>
 <ul>
   <% @kifus_order_by_created_at.each do |kifu| %>
-  <li><%= link_to kifu.title, kifu %>: 登録日<%= kifu.created_at.to_date %></li>
+  <li>
+    <%= link_to kifu.title, kifu %>（Created at: <%= kifu.created_at.to_date %>）
+  </li>
   <% end %>
 </ul>
 
-<h2>人気ランキング</h2>
+<h2>人気順に並べてみた</h2>
 <ul>
   <% @kifus_order_by_view.each do |kifu| %>
-  <li><%= link_to kifu.title %>: 総閲覧数<%= kifu.view %></li>
+  <li>
+    <%= link_to kifu.title, kifu %>（View: <%= kifu.view %>）
+  </li>
   <% end %>
 </ul>
 

@@ -1,24 +1,38 @@
-<h1>Listing kifus</h1>
-
+<h2>ぜんぶ並べてみた</h2>
 <table>
   <tr>
-    <th>Owner</th>
-    <th>Title</th>
+    <th>
+      Owner
+    </th>
+    <th>
+      Title
+    </th>
+    <th></th>
     <th></th>
     <th></th>
   </tr>
-
-<% @kifus.each do |kifu| %>
+  <% @kifus.each do |kifu| %>
   <tr>
-    <td><%= kifu.user_id %></td>
-    <td><%= kifu.title %></td>
-    <td><%= link_to 'Show', kifu %></td>
-    <td><%= link_to 'Edit', edit_kifu_path(kifu) %></td>
-    <td><%= link_to 'Destroy', kifu, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>
+      <%= kifu.user.email %>
+    </td>
+    <td>
+      <%= kifu.title %>
+    </td>
+    <td>
+      <%= link_to '棋譜を見る', kifu %>
+    </td>
+    <% if kifu.user.id == current_user.id %>
+    <td>
+      <%= link_to '編集', edit_kifu_path(kifu) %>
+    </td>
+    <td>
+      <%= link_to '削除', kifu, :confirm => 'Are you sure?', :method => :delete %>
+    </td>
+    <% else %>
+    <td></td>
+    <td></td>
+    <% end %>
   </tr>
-<% end %>
+  <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Kifu', new_kifu_path %>

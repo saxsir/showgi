@@ -1,3 +1,181 @@
+@font-face {
+    font-family:ITCAvantGarde;
+    src:url('../fonts/ITCAvantGardeStd-XLt.otf');
+}
+
+@font-face {
+    font-family:ITCAvantGarde;
+    font-weight:bold;
+    src:url('../fonts/ITCAvantGardeStd-Bold.otf');
+}
+@font-face {
+    font-family:FreightTextBook;
+    src:url('../fonts/FreightText-Book.ttf');
+}
+footer,header,nav,section {
+    display:block;
+}
+
+html {
+    font-size:100%;
+    -webkit-text-size-adjust:100%;
+    -ms-text-size-adjust:100%;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight:bold;
+}
+
+img {
+    vertical-align:middle;
+    border:0;
+    -ms-interpolation-mode:bicubic;
+}
+
+body,div,section,header,footer,h1,h2,h3,h4,h5,h6,p,nav,ul,li,iframe {
+    margin:0;
+    padding:0;
+}
+
+ul {
+    list-style-type:none;
+}
+
+address {
+    font-style:normal;
+}
+body {
+    background:url('../images/ptrn-page-bg.png') repeat;
+    color:#cdcdcd;
+    font:normal 22px ITCAvantGarde,"Avant Garde",Avantgarde,"Century Gothic",CenturyGothic,"AppleGothic",sans-serif;
+    -webkit-font-smoothing:antialiased;
+    margin-bottom:35px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1060px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 50px;
+}
+
+h1 {
+    font-size:43px;
+    color:#9700d9;
+    letter-spacing:-2px;
+}
+h1::after {
+    content:".";
+}
+h2 {
+    font-size:100px;
+    text-align:center;
+    color:#00badb;
+}
+h3 {
+    font-size:64px;color:#00badb;
+}
+h4 {
+    font-size:86px;
+    font-weight:normal;
+    color:#808080;
+}
+h5 {
+    font-size:22px;
+    color:#808080;
+}
+h6 {
+    font-size:18px;
+    color:#fefefe;
+}
+p,li,h1,h2,h3,h4,h5 {
+    line-height:135%;
+}
+a {
+    text-decoration:none;
+    font-weight:bold;
+}
+nav li {
+    float :left;
+    margin-left:45px;
+}
+nav li:first-of-type {
+    margin-left:0;
+}
+
+header nav {
+    *zoom:1;
+margin-bottom:70px;
+}
+header nav:before,header nav:after {
+    display:table;
+    content:"";
+}
+header nav:after {
+    clear:both;
+}
+header nav h1 {
+    float:left;
+}
+header nav ul {
+    float:right;
+    letter-spacing:-1px;
+}
+header nav a {
+    padding-top:1px;
+    color:#808080;
+}
+header nav a:hover {
+    color:#00badb;
+}
+
+#content > ul {
+    margin-left: 245px;
+}
+#content > ul li {
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+#content  > p {
+    font-family: FreightTextBook,Georgia,"Times New Roman",Times,serif;
+    text-indent: 45px;
+    color: #333;
+    line-height: 165%;
+}
+
+#how-to-use {
+    text-indent: 45px;
+    color: #333;
+    line-height: 165%;
+}
+#content > table {
+    width: 100%;
+    color: #000;
+}
+#board > table{
+    margin-left: auto;
+    margin-right: auto;
+    color: #000;
+}
+#kifu-head-left {
+    color: #333;
+    float: left;
+    margin-left: 20px;
+}
+#kifu-head-right {
+    float: right;
+    margin-right: 20px;
+}
+#content > form {
+    color: #333;
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: 245px;
+}
+.clearfix:after {
+  content: ""; 
+  display: block; 
+  clear: both;
+}
 .hidden {
   display: none;
 }

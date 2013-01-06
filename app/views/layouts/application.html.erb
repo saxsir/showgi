@@ -7,15 +7,44 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <% if user_signed_in? %>
-  You are signed in as <%= current_user.email %>
-  <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
-  <% else %>
-  <%= link_to 'Login', new_user_session_path %>
-  <% end %>
+  <header>
+    <p>
+      <% if user_signed_in? %>
+      <strong>こんにちわ、<%= current_user.email %> さん</strong>
+      <% end %>
+    </p>
+    <div id="notification">
+      <p class="notice red"><%= notice %></p>
+      <p class="alert red"><%= alert %></p>
+    </div>
+    <nav>
+      <h1>showgi</h1>
+      <ul>
+	<li>
+	  <a href="/">トップ</a>
+	</li>
+	<li>
+	  <a href="/userpage">マイページ</a>
+	</li>
+	<li>
+	  <a href="/kifus">棋譜一覧</a>
+	</li>
+	<li>
+	  <%= link_to '棋譜登録', new_kifu_path %>
+	</li>
+	<li>
+	  <% if user_signed_in? %>
+	  <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+	  <% else %>
+	  <%= link_to 'Login', new_user_session_path %>
+	  <% end %>
+	</li>
+      </ul>
+    </nav>
+  </header>
 
-  <%= yield %>
+  <div id="content">
+    <%= yield %>
+  </div>
 </body>
 </html>
