@@ -308,6 +308,10 @@ BoardManager.prototype.update = function(update_display) {
   if (this.index == 0)
     return;
 
+  // CSAファイルの終わりまできたらreturn
+  if (moves[this.index -1] == undefined)
+    return;
+
   var turn_symbol = moves[this.index - 1].charAt(0);
   var old_x = moves[this.index - 1].charAt(1);
   var old_y = moves[this.index - 1].charAt(2);
@@ -442,6 +446,7 @@ function makeBoardHandler(display_id, csa_id, forward_moves, csa_text) {
     makeBoardHandler(display_id, csa_id, board_manager.currentIndex() - 10,
 		     csa_text);
   };
+  
   board_manager.forward(forward_moves);
   var cell = table.getSouthCell();
   cell.appendChild(beginning);
@@ -449,6 +454,28 @@ function makeBoardHandler(display_id, csa_id, forward_moves, csa_text) {
   cell.appendChild(backward);
   cell.appendChild(forward);
   cell.appendChild(forward10);
+
+  /*
+   * キーバインド追加
+   */
+  $('html').keydown(function(e){
+    switch(e.which){
+      case 39: // Key[→]
+	board_manager.forward(1)
+        break;
+
+      case 37: // Key[←]
+	makeBoardHandler(display_id, csa_id, board_manager.currentIndex() - 1, csa_text);
+        break;
+
+      case 38: // key[↑]
+	makeBoardHandler(display_id, csa_id, board_manager.currentIndex() - 10, csa_text);
+        break;
+      case 40: // key[↓]
+	board_manager.forward(10);
+	break;
+    }
+  });
 }
 
 function makeBoard(display_id, csa_id, forward_moves) {
