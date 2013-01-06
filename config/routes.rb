@@ -1,14 +1,16 @@
 Showgi::Application.routes.draw do
   
-  get "userpage/index"
 
-  resources :kifus
 
   root :to => 'home#index'
 	
   devise_for :users
 
+  resources :kifus
+  
+  match 'userpage' => 'userpage#index', :as => :userpage
 
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
