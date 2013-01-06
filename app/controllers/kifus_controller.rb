@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 class KifusController < ApplicationController
+  before_filter :authenticate_user!, :only => [:new, :edit]  
   # GET /kifus
   # GET /kifus.json
   def index

@@ -1,5 +1,4 @@
 class FavoriteController < ApplicationController
-
   # POST /favorite/:kifu_id
   def create
     @favorite = Favorite.new
