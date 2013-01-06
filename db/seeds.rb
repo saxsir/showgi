@@ -43,7 +43,6 @@ Favorite.connection.execute("delete from sqlite_sequence where name='favorites'"
   Favorite.create! do |f|
     f.user_id = i + 1
     f.kifu_id = rand(4) + 1 #1~4
-    f.favorite = true
   end
 end
 
