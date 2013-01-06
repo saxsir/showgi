@@ -25,13 +25,8 @@ Copyright &copy; 2012 saxsir
 スクリプト言語プログラミングの授業"以外"での再利用、改変はご自由にどうぞ。  
 
 
-関連情報（あとで書く）
+お世話になったサイト
 --------
-1. [リンク1](http://example.com/ "リンクのタイトル")
-    * ![画像1](http://github.com/unicorn.png "画像のタイトル")
-2. [リンク2][link]
-    - [![画像2][image]](https://github.com/)
- 
-  [link]: http://example.com/ "インデックス型のリンク"
-  [image]: http://github.com/github.png "インデックス型の画像"
-
+1. [将棋タイトル戦](http://shogititle.nobody.jp/download.html "将棋タイトル戦")（棋譜のダウンロード ki2形式）
+2. [将棋の棋譜でーたべーす](http://wiki.optus.nu/shogi/index.php "将棋の棋譜でーたべーす")（ki2形式からkif形式へ変換）
+3. [棋譜ぺったん](http://noike.info/~kenzi/cgi-bin/kifup/ "棋譜ぺったん")（kif形式をcsa形式へ変換）

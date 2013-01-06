@@ -6,9 +6,9 @@
 <% else %>
 <%= link_to 'お気に入りに追加する', '/favorite/' + @kifu.id.to_s , :method => :post %>
 <% end %>
-<p>レートをつける</p>
 <% end %>
 
+<!--
 <p>
   <% if @rate %>
   この棋譜の評価は<span class="red"><%= @rate %></span>だよ
@@ -16,6 +16,7 @@
   この棋譜にはまだ評価がついてないよ
   <% end %>
 </p>
+-->
 <p>
   この棋譜は<span class="red"><%= @kifu.view %></span>回閲覧されているよ
 </p>
