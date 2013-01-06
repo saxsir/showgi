@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20130104173101) do
   end
 
   create_table "kifus", :force => true do |t|
-    t.integer  "owner_id"
+    t.integer  "user_id"
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

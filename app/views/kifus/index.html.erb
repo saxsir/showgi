@@ -10,7 +10,7 @@
 
 <% @kifus.each do |kifu| %>
   <tr>
-    <td><%= kifu.owner_id %></td>
+    <td><%= kifu.user_id %></td>
     <td><%= kifu.title %></td>
     <td><%= link_to 'Show', kifu %></td>
     <td><%= link_to 'Edit', edit_kifu_path(kifu) %></td>
