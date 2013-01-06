@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <% if user_signed_in? %>
-<p>お気に入りに登録する</p>
+<% if @favorite %>
+<%= link_to 'お気に入りに追加する', create_favorite_path, :method => :post, :confirm => 'お気に入りに追加してもいいですか？' %>
+<% else %>
+<p>お気に入りに登録済みです</p>
+<% end %>
 <p>レートをつける</p>
 <% end %>
 

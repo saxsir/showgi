@@ -17,8 +17,9 @@ class KifusController < ApplicationController
     @kifu = Kifu.find(params[:id])
     @kifu.view += 1
     @kifu.save
+    @rate = nil
+    @favorite = false
 
-    # has_manyの関係だから.ratesでアクセスできる
     if @kifu.rates.length >= 1
       sum = 0.0
       @kifu.rates.each do |r|
@@ -26,10 +27,16 @@ class KifusController < ApplicationController
       end
       # 小数点第1位で四捨五入
       @rate = ((sum / @kifu.rates.length) * 10).round / 10.0
-    else
-      @rate = nil
     end
 
+    @favorites = Favorite.find(:all, :conditions => ['user_id = ? and kifu_id = ?', current_user.id, params[:id]])
+    
+    # すでにfavoriteに登録されていたらfalseのまま
+    if @favorites.length <= 0
+      @favorite = true
+    end               
+
+    # @kifu, @rate, @favorite
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @kifu }

@@ -9,8 +9,9 @@ Showgi::Application.routes.draw do
   resources :kifus
   
   match 'userpage' => 'userpage#index', :as => :userpage
-
   
+  post 'kifus/:id' => 'favorite#create', :as => :create_favorite
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
