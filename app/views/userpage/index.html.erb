@@ -1,2 +1,7 @@
 <h1>Userpage#index</h1>
-<p>Find me in app/views/userpage/index.html.erb</p>
+<h2>お気に入りの棋譜一覧</h2>
+<ul>
+  <% @favorites.each do |f| %>
+  <li><%= link_to f.kifu.title, f.kifu %></li>
+  <% end %>
+</ul>
