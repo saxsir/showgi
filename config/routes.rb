@@ -1,5 +1,7 @@
 Showgi::Application.routes.draw do
   
+  get "userpage/index"
+
   resources :kifus
 
   root :to => 'home#index'
